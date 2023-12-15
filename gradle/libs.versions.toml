@@ -5,6 +5,9 @@ targetSdk = "34"
 minSdk = "24"
 jvmTarget = "1.8"
 kotlinCompilerExtVersion = "1.5.1"
+androidApplication = "8.2.0"
+kapt = "1.9.0"
+javaPoet = "1.13.0"
 
 # AndroidX
 splashScreen = "1.0.0-beta02"
@@ -25,6 +28,10 @@ kotlin = "1.9.0"
 navigationCompose = "2.7.5"
 appcompat = "1.6.1"
 material = "1.9.0"
+
+# Dependency Injection
+hilt = "2.49"
+hiltNavigationCompose = "1.0.0"
 
 [libraries]
 # AndroidX
@@ -49,9 +56,15 @@ compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "composeUi" }
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose"}
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Hilt
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hiltCompiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hiltNavigationCompose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 [plugins]
+androidApplication = { id = "com.android.application", version.ref = "androidApplication" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }

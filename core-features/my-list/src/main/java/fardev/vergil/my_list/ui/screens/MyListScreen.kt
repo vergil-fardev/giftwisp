@@ -3,7 +3,6 @@
 package fardev.vergil.my_list.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,22 +22,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import fardev.vergil.core_ui.Dimensions
+import fardev.vergil.my_list.ui.MyListViewModel
 import fardev.vergil.my_list.ui.widgets.MyListItemCard
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun MyListScreen() {
+fun MyListScreen(
+    viewModel: MyListViewModel = hiltViewModel(),
+) {
     val scope = rememberCoroutineScope()
     val modalState = rememberModalBottomSheetState()
-    val myList = listOf(
-        "PS5",
-        "Nintendo Switch",
-        "Hogwarts Castle LEGO",
-        "Percy Jackson Book Series",
-        "New Mug",
-    )
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = {
@@ -52,7 +48,7 @@ fun MyListScreen() {
         modifier = Modifier.fillMaxSize(),
     ) { scaffoldPadding ->
         MyListContent(
-            myList = myList,
+            myList = viewModel.getGiftList(),
             modalState = modalState,
             scope = scope,
             modifier = Modifier.padding(scaffoldPadding),
@@ -78,12 +74,14 @@ fun MyListContent(
         }
     }
     if(modalState.isVisible) {
-        ModalBottomSheet(onDismissRequest = {
-            scope.launch {
-                modalState.hide()
+        ModalBottomSheet(
+            onDismissRequest = {
+                scope.launch {
+                    modalState.hide()
+                }
             }
-        }) {
-            MyListItemEditScreen(modifier, isEditMode = false)
+        ) {
+            MyListItemEditScreen(isEditMode = false)
         }
     }
 }

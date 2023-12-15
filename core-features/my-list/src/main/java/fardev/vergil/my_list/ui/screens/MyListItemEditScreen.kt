@@ -2,8 +2,10 @@ package fardev.vergil.my_list.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -18,8 +20,8 @@ import fardev.vergil.core_ui.Dimensions
 import fardev.vergil.my_list.R
 
 @Composable
-fun MyListItemEditScreen(modifier: Modifier = Modifier, isEditMode: Boolean) {
-    Surface(modifier = modifier) {
+fun MyListItemEditScreen(isEditMode: Boolean) {
+    Surface {
         Column(
             verticalArrangement = Arrangement.spacedBy(Dimensions.TWO_UNIT),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -44,6 +46,10 @@ fun MyListItemEditScreen(modifier: Modifier = Modifier, isEditMode: Boolean) {
                     }
                 ))
             }
+
+            // todo temporary solution until I learn how to deal with Scaffold padding in Modals
+            Spacer(modifier = Modifier.size(Dimensions.FIVE_UNIT))
+            Spacer(modifier = Modifier.size(Dimensions.FIVE_UNIT))
         }
     }
 }
