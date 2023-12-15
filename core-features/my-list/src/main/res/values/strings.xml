@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_list_item_placeholder">What do you want as a gift?</string>
+    <string name="my_list_item_add_item">Add to list</string>
+    <string name="my_list_item_update_item">Update item</string>
+</resources>

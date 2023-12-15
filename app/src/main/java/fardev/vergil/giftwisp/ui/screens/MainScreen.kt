@@ -22,6 +22,8 @@ import androidx.navigation.compose.rememberNavController
 import fardev.vergil.giftwisp.ui.navigation.HomeBottomNavigationItems
 import fardev.vergil.giftwisp.ui.navigation.Screens
 import fardev.vergil.giftwisp.ui.theme.GiftWispTheme
+import fardev.vergil.my_groups.ui.screens.MyGroupsScreen
+import fardev.vergil.my_list.ui.screens.MyListScreen
 
 @Composable
 fun MainScreen() {
@@ -29,7 +31,7 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(
-        bottomBar = { HomeBottomBar() }
+        bottomBar = { HomeBottomBar(navController) }
     ) { scaffoldPadding ->
         HomeContent(navController = navController, scaffoldPadding = scaffoldPadding)
     }
@@ -43,16 +45,19 @@ private fun HomeContent(navController: NavHostController, scaffoldPadding: Paddi
         modifier = Modifier.padding(scaffoldPadding)
     ) {
         composable(Screens.Home.routeName) {
-
+            MyGroupsScreen()
+        }
+        composable(Screens.MyList.routeName) {
+            MyListScreen()
         }
         composable(Screens.Settings.routeName) {
-
+            Text("Oi")
         }
     }
 }
 
 @Composable
-private fun HomeBottomBar() {
+private fun HomeBottomBar(navController: NavHostController) {
     var selectedTab by remember {
         mutableIntStateOf(0)
     }
@@ -61,7 +66,12 @@ private fun HomeBottomBar() {
         HomeBottomNavigationItems.getItems().mapIndexed { index, item ->
             NavigationBarItem(
                 selected = index == selectedTab,
-                onClick = { selectedTab = index },
+                onClick = {
+                    if(selectedTab == index)
+                        return@NavigationBarItem
+                    selectedTab = index
+                    navController.navigate(item.route)
+                },
                 label = { Text(text = stringResource(id = item.label)) },
                 icon = { Icon(imageVector = item.icon, contentDescription = null) },
             )

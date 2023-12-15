@@ -10,4 +10,5 @@
     <li>Implement Random User Pick</li>
     <li>Implement Gift Day Reminder</li>
     <li>Implement End Group</li>
+    <li>Add Spotless</li>
 </ul>

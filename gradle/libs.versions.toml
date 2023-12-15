@@ -4,6 +4,7 @@ compileSdk = "34"
 targetSdk = "34"
 minSdk = "24"
 jvmTarget = "1.8"
+kotlinCompilerExtVersion = "1.5.1"
 
 # AndroidX
 splashScreen = "1.0.0-beta02"
