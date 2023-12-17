@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "fardev.vergil.core_ui"
+    namespace = "fardev.vergil.core_data"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -31,25 +31,8 @@ android {
     kotlinOptions {
         jvmTarget = libs.versions.jvmTarget.get()
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtVersion.get()
-    }
-    buildFeatures {
-        compose = true
-        buildConfig = true
-    }
 }
 
 dependencies {
-
-    implementation(project(":core-libraries:core-data")) // todo here for the logger, should it be moved to another core module?
-
-    api(libs.activity.compose)
-    api(platform(libs.compose.bom))
-    api(libs.compose.ui)
-    api(libs.compose.ui.graphics)
-    debugApi(libs.compose.ui.tooling.preview)
-    debugApi(libs.compose.ui.test.tooling)
-    api(libs.compose.material3)
-
+    api(libs.timber)
 }

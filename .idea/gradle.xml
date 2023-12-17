@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/core-features/my-groups" />
             <option value="$PROJECT_DIR$/core-features/my-list" />
             <option value="$PROJECT_DIR$/core-libraries" />
+            <option value="$PROJECT_DIR$/core-libraries/core-data" />
             <option value="$PROJECT_DIR$/core-libraries/core-test" />
             <option value="$PROJECT_DIR$/core-libraries/core-ui" />
           </set>

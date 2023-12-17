@@ -17,6 +17,7 @@ rootProject.name = "Gift Wisp"
 include(":app")
 include(":core-libraries:core-test")
 include(":core-libraries:core-ui")
+include(":core-libraries:core-data")
 include(":core-features:my-list")
 include(":core-features:my-groups")
 include(":core-features:app-settings")

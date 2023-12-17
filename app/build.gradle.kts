@@ -64,6 +64,7 @@ dependencies {
     implementation(project(":core-features:my-list"))
     implementation(project(":core-features:my-groups"))
     implementation(project(":core-libraries:core-ui"))
+    implementation(project(":core-libraries:core-data"))
 
     implementation(libs.androidx.splashscreen)
 
