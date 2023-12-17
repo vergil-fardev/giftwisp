@@ -11,6 +11,6 @@
     <li>Implement Gift Day Reminder</li>
     <li>Implement End Group</li>
     <li>Add Spotless</li>
-    <li>Add Timber</li>
+    <li>Add Timber ✅</li>
     <li>Figure out View Model Event vs Composable events</li>
 </ul>
